@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <h1>Template Strings</h1>
+    <p>Open the console</p>
+    
+<script type="text/babel">
+    const lastName = 'Oh'
+    const middleName = '현석'
+    const firstName = 'Frank'
+
+    console.log('첫번째 방법')
+    console.log(lastName + ', ' + firstName + ' ' + middleName)
+    console.log('두번째 방법')
+    console.log(`${lastName}, ${firstName} ${middleName}`)
+
+//////////////////////////////////////////////////////////////
+
+    var ticketAgent = '예술의 전당'
+    var event = '서태지와 아이들'
+    var qty = 2
+    var price = 10
+    
+    console.log(`
+    ${firstName} 님께,
+    ${event} 티켓 ${qty} 건을 구매해주셔서 감사합니다.
+    
+    주문 상세 정보:
+
+    ${lastName} ${firstName} ${middleName}
+    ${qty} x $${price} =$${qty*price} 공연: ${event}
+
+    공연 시작 30분 전까지 배부처에서 티켓을 수령하시기 바랍니다.
+
+    감사합니다.
+
+    ${ticketAgent} 드림
+    `)
+
+    ////////////////////////////////////////////////////////////
+
+    var article = {
+        title: 'Template Strings',
+        body:`
+            <div>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor</p>
+                <p> laboris nisi ut aliquip ex ea commodo consequat.</p>
+            </div>
+        `
+    }
+
+    document.body.innerHTML = `
+    <section>
+        <header>
+            <h1>The HTML5 Blog</h1>
+        </header>
+        <article>
+            <h2>${article.title}</h2>
+            ${article.body}
+        </article>
+        <footer>
+            <p>copyright ${new Date().getFullYear()} | The HTML5 Blog</p>
+        </footer>
+    </section>
+    `
+</script>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+    <title>Document</title>
+<script>
+    logCompliment()
+    function logCompliment(){
+        console.log('함수선언은 호이스팅가능')
+        console.log('잘했어요111')
+    }
+
+    // logCompliment_2()
+    // const logCompliment_2 = function(){
+        console.log('함수표현식은 호이스팅 불가능')
+    //     console.log('잘했어욤222')
+    // }
+
+/////////////////////////////////////////////////////////////////////
+
+    const logCompliment_3 = function(firstName){
+        console.log(`잘했어여333, ${firstName}`)
+    }
+    logCompliment_3('현석')
+
+    const logCompliment_4 = function(firstName, message){
+        console.log(`${firstName}: ${message}`)
+    }
+    logCompliment_4('형원', '아주 멋져요')
+
+    const logCompliment_5 = function(firstName, message){
+        return `${firstName}: ${message}`;
+    }
+    returnValue = logCompliment_5('형원', '굿잡')
+    console.log(returnValue)
+
+////////////////////////////////////////////////////////////////////
+
+    function logActivity_1(name = '서형원', activity='테니스'){
+        console.log(`${name}은 ${activity}를 좋아합니다11.`)
+    }
+    logActivity_1()
+
+    const defaultPerson = {
+        name: {
+            first: '형원',
+            last: '서'
+        },
+        favActivity: '테니스'
+    }
+    function logActivity_2(p = defaultPerson){
+        console.log(`${p.name.first} 는 ${p.favActivity} 를 좋아합니당22`)
+    }
+    logActivity_2()
+
+/////////////////////////////////////////////////////////////////////////
+
+
+</script>
+</head>
+<body>
+    <div id="asd"></div>
+</body>
+</html>

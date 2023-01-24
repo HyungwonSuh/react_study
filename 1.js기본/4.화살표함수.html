@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/babel">
+        const lordify_1 = function(firstname){
+            return `켄터베리의 ${firstname}`
+        }
+        console.log(lordify_1('서형원11'))
+
+        const lordify_2 = firstname => `켄터베리의 ${firstname}`
+        console.log(lordify_2('서형원_2'))
+        //////////////////////////////////
+        console.log('------------------------------')
+
+
+        var lordify_3 = function(firstName, land){
+            return `${land}의 ${firstName}`
+        }
+        console.log(lordify_3('형원', '서울'))
+
+        var lordify_4 = (firstName, land) => `${land}의 ${firstName}`
+        console.log(lordify_4('형원22', '서울22'))
+
+        ///////////////////////////////////////////////
+        console.log('------------------------------')
+
+
+        const lordify_5 = (firstName, land) => {
+            if(!firstName){
+                throw new Error('lordify에게 이름을 넘겨야 합니다')
+            }
+            if(!land){
+                throw new Error('영주에게는 영지가 있어야 합니다.')
+            }
+
+            return `${land}의 ${firstName}`
+        }
+        console.log(lordify_5('형원', '서울'))
+        // console.log(lordify_5("형원",''))
+        // console.log(lordify_5('서울'))
+        // console.log(lordify_5("",'서울'))
+
+        //////////////////////////////////////////////////////////
+        console.log('------------------------------')
+
+        const person_1 = function(firstName, lastName){
+            return ({ first: firstName, last: lastName})
+        }
+        console.log(person_1('형원1','서1'))
+
+        const person_2 = (firstName, lastName) => 
+        ({
+            first : firstName,
+            last : lastName
+        });
+
+        console.log(person_2('형원','서'))
+
+        ////////////////////////////////////////////////////////
+        console.log('------------------------------')
+
+        var tatata_1 = {
+            resorts: ['용평', '평창', '강촌', '강릉', '홍천'],
+            print_1: function(delay=1000){
+                setTimeout(function(){
+                    console.log(this.resorts.join(','))
+                    console.log('this는 윈도우임으로 실행안됨 오류')
+                    console.log(this)
+                }, 1000)
+            }
+        }
+        tatata_1.print_1()
+
+        var tatata_2 = {
+            resorts: ['용평', '평창', '강촌', '강릉', '홍천'],
+            print_2: function(){
+                setTimeout(function(){
+                    console.log('this: ',this)
+                    console.log('bind 로 합침')
+                    console.log(this.resorts.join(':'))
+                }.bind(this), 2000)
+            }
+        }
+        tatata_2.print_2()
+
+        var tatata_3 = {
+            resorts: ['용평', '평창', '강촌', '강릉', '홍천'],
+            print_3: function(){
+                setTimeout(() => {
+                    console.log('this: ', this)
+                    console.log('화살표함수사용')
+                    console.log(this.resorts.join('~'))
+                }, 3000)
+            }
+        }
+        tatata_3.print_3()
+
+        var tatata_4 = {
+            resorts: ['용평', '평창', '강촌', '강릉', '홍천'],
+            print_4: () => {
+                setTimeout(() => {
+                    console.log('this: ', this)
+                    console.log('print를 화살표함수로바꾸면 this 는 윈도우가 된다.')
+                    console.log(this.resorts.join(':'))
+                }, 4000)
+            }
+        }
+        tatata_4.print_4()
+
+    </script>
+</body>
+</html>
