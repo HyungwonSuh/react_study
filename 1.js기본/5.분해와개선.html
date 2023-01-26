@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const sandwich_1 = {
+            bread_1: '소보로',
+            meat_1: '닭거기',
+            cheese_1: '피자치즈',
+            toppings_1: ['양파','토마토','상추']
+        }
+
+        let {bread_1, meat_1} = sandwich_1
+        console.log(bread_1, meat_1)
+
+
+        ///////////////////////////////////////////////
+        const sandwich_2 = {
+            bread_2: '통밀빵',
+            meat_2: '소거기',
+            chesse_2: '아메리칸치즈',
+            toppings_2: ['다마네기', '피클']
+            
+        }
+        let{bread_2, meat_2} = sandwich_2
+
+        bread_2 = '바게트'
+        meat_2 = '칠면조'
+
+        console.log(bread_2, meat_2)
+        console.log(sandwich_2.bread_2, sandwich_2.meat_2)
+
+        
+        console.log('////////////////////////////////////////')
+        ///////////////////////////////////////////////
+        
+        const lordify = regularPerson => {
+            console.log(`켄터베리의 ${regularPerson.firstname}`)
+        }
+
+        var regularPerson = {
+            firstname: '예은',
+            lastname: '양'
+        }
+
+        lordify(regularPerson)
+
+        //////////////////////////////////////////////
+        const lordify_2 = ({firstname_2}) => {
+            console.log(`켄터베리의 ${firstname_2}`)
+        }
+
+        const regularPerson_2 = {
+            firstname_2: '예은2',
+            lastname_2: '양_2'
+        }
+
+        lordify_2(regularPerson_2)
+
+        ///////////////////////////////////////////////////////
+
+        const regularPerson_3 = {
+            firstname_3 : '예은3',
+            lastname_3 : '양',
+            spouse: {
+                firstname: '형원',
+                lastname: '서'
+            }
+        }
+
+        const lordify_3 = ({spouse: {firstname}}) => {
+            console.log(`켄터베리의 ${firstname}`)
+        }
+        lordify_3(regularPerson_3)
+
+        console.log('////////////////////////////////////////')
+        ///////////////////////////////////////////////////////
+        
+        const animals = ['캥거루', '웜벳', '코알라']
+        console.log(animals)
+
+        const [firstAnimal] = ['캥거루', '웜벳', '코알라']
+        console.log(firstAnimal)
+        
+        const [,secondAnimal] = ['캥거루', '웜벳', '코알라']
+        console.log(secondAnimal)
+
+        const [,,lastAnimal] = ['캥거루', '웜벳', '코알라']
+        console.log(lastAnimal)
+    </script>
+</body>
+</html>
