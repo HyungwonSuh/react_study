@@ -92,6 +92,75 @@
 
         const [,,lastAnimal] = ['캥거루', '웜벳', '코알라']
         console.log(lastAnimal)
+
+        console.log('////////////////////////////////////////')
+        ///////////////////////////////////////////////////////
+
+        const name = '한라산' //켈리포니아에 있는산
+        const elevation = 9738
+        const funHike = {name, elevation};
+
+        console.log(funHike)
+
+        ////////////////////////////////////////////////////
+        const name_2 = '백두산'
+        const elevation_2 = 123945;
+        const print = () => {
+            console.log(`${this.name_2} 산의 높이는 ${this.elevation_2}입니다`)
+            console.log('this: ', this, '는 왜 윈도우인가')
+        }
+        
+        const funHike_2 = {name_2, elevation_2, print}
+
+        funHike_2.print()
+
+        console.log('////////////////////////////////////////')
+        ///////////////////////////////////////////////////////
+        console.log('--옛날방식--')
+
+        var name_5 = 'Leo Tailer'
+        var sound_5 = 'Kahh'
+        var skier = {
+            name: name_5,
+            sound: sound_5,
+            powderYell: function() {
+                var yell = this.sound.toUpperCase();
+                console.log(`${yell} ${yell} ${yell}`)
+            },
+            speed: function(mph) {
+                this.speed = mph;
+                console.log(`속력(mph): `, mph)
+            }
+        }
+
+        skier.powderYell()
+        skier.speed('엉덩이에 불날 것 같은')
+        console.log(JSON.stringify(skier))
+
+        console.log('--새로운방식--')
+        var name_6 = 'Julia'
+        var sound_6 = 'Go fast'
+        const skier_2 = {
+            name_6,
+            sound_6,
+            powderYell_2(){
+                let yell_2 = this.sound_6.toUpperCase();
+                console.log(`${yell_2} ${yell_2} ${yell_2}`)
+            },
+            speed_2(mph_2){
+                this.speed_6 = mph_2;
+                console.log(`속력(mph): `, mph_2)
+            }
+        }
+        skier_2.powderYell_2()
+        skier_2.speed_2(350)
+        console.log(JSON.stringify(skier_2))
+
+
+
+
+
+
     </script>
 </body>
 </html>

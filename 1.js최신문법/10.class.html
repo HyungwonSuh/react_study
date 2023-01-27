@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        //이전 방식
+       function Vacation(destination, length){
+        console.log(this)
+        this.destination = destination
+        this.length = length
+       }
+
+       Vacation.prototype.print = function() {
+        console.log(this.destination + '은' + this.length + '일 걸립니다.')
+       }
+
+       const maui = new Vacation('마우이', 7)
+
+       maui.print()
+
+       /////////////////////////////////////////////////
+       console.log('///////////////////////////////////////////')
+
+
+       //클래스를 이용한 새로운 방식
+       class Vacation_2 {
+        constructor(destination_2, length_2){
+            this.destination = destination_2
+            this.length = length_2
+        }
+        print(){
+            console.log(`${this.destination} 은(는) ${this.length} 일 걸립니다.`)
+        }
+       }
+
+       const trip = new Vacation_2('칠레 산티아고', 7)
+       console.log(trip.print())
+
+       /////////////////////////////////////////////////
+       console.log('///////////////////////////////////////////')
+
+
+       //클래스 상속
+       class Expedition extends Vacation_2 {
+        constructor(destination, length, gear){
+            super(destination, length);
+            this.gear = gear
+        }
+        print() {
+            super.print();
+            console.log(`당신의 ${this.gear.join('와 당신의')}를 가져오십시오`)
+        }
+       }
+
+       const trip2 = new Expedition('한라산', 3, ['선글라스', '깃발', '카메라'])
+
+       trip2.print()
+</script>
+</body>
+</html>

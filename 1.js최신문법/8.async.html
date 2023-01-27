@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        console.log(`async는 옛날방식이다. try, catch문으로 
+        감싸줘야되기도하고, 결과적으로 fetch(js 기본내장함수)를 쓰는것이좋다`)
+        const getFakePerson = async() => {
+            try{
+                let response_wony = await fetch('https://api.randomuser.me/?nat=US&results=1/')
+                let {data} = response_wony.json()
+                console.log(data);
+            } catch(error){
+                console.error(error);
+            }
+        }
+
+        getFakePerson()
+    </script>
+</body>
+</html>

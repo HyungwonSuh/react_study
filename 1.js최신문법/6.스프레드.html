@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const peaks = ['대청봉', '중청봉', '소청봉']
+        const canyons = ['천불동계곡', '가야동계곡']
+        const seoraksan = [peaks, canyons];
+        const seoraksan_2 = [...peaks, ...canyons];
+        console.log('peaks: ', peaks)
+        console.log('[peaks]: ', [peaks])
+        console.log('[...peaks]: ', [...peaks])
+        console.log('seoraksan = [peaks, canyons] ', seoraksan.join(':'))
+        console.log('seoraksan = [...peaks, ...canyons] ',seoraksan_2.join(':'))
+
+        /////////////////////////////////////////////////////////////
+        console.log('///////////////////////////////////////////////')
+       
+        const peaks_2 = ['대청봉', '중청봉', '소청봉']
+        const [last] = peaks_2.reverse()
+        console.log('last : ', last)
+        console.log('[last] : ', [last])
+        console.log('peaks_2.join: ', peaks_2.join(':'))
+
+        const peaks_3 = ['대청봉', '중청봉', '소청봉']
+        const [last_2] = [...peaks_3].reverse()
+        console.log('peaks_3 : ', peaks_3)
+        console.log('[peaks_3] : ', [peaks_3])
+        console.log('[...peaks_3] : ', [...peaks_3])
+        console.log('last_2: ',last_2)
+        console.log('peaks_3: ',peaks_3.join(':'))
+
+        console.log(`----------------스프레드 연산자는 원본은 놔두고, 
+        복사본을 만들어서 연산한다는 점이 대표적 특징이다----------`)
+        ////////////////////////////////////////////////////////////////
+        console.log('///////////////////////////////////////////////')
+
+        const lakes = ['경포호', '화진포', '송지호', '청초호']
+        const[, ...rest] = lakes;
+        const[first, ...rest_2] = lakes;
+
+        console.log('rest: ', rest)
+        console.log('...rest: ', ...rest)
+        console.log('first: ', first, '...rest: ', ...rest_2)
+
+        ////////////////////////////////////////////////////////
+        console.log('///////////////////////////////////////////////')
+        
+        function directions_1(...args){
+            let [start, ...remaining] = args;
+            let [finish, ...stops] = remaining.reverse()
+
+            console.log(`${args.length} 도시를 운행합니다.`)
+            console.log(`${start} 에서 출발합니다..`)
+            console.log(`목적지는 ${finish} 입니다..`)
+            console.log(`중간에 ${stops.length} 군데를 들립니다..`)
+        }
+
+        directions_1(
+            '서울',
+            '수원',
+            '천안',
+            '대전',
+            '대구',
+            '부산'
+        )
+       
+        function directions_2(args){
+            let [start, ...remaining] = args;
+            let [finish, ...stops] = remaining.reverse()
+
+            console.log(`${args.length} 도시를 운행합니다.`)
+            console.log(`${start} 에서 출발합니다..`)
+            console.log(`목적지는 ${finish} 입니다..`)
+            console.log(`중간에 ${stops.length} 군데를 들립니다..`)
+        }
+
+        directions_2(
+            ['서울',
+            '수원',
+            '천안',
+            '대전',
+            '대구',
+            '부산']
+        )
+
+        ////////////////////////////////////////////////////////
+        console.log('///////////////////////////////////////////////')
+
+        const morning = {
+            breakfast: '미역국',
+            lunch: '삼치구이와 보리밥'
+        };
+        const dinner = '스테이크 정식';
+
+        const backpackingMeals = {
+            morning,
+            dinner
+        };
+        const backpackingMeals_2 = {
+            ...morning,
+            dinner
+        };
+
+        console.log(backpackingMeals)
+        console.log(backpackingMeals_2)
+        
+
+        
+        
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>
