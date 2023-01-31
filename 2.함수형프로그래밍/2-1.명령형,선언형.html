@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        ////////////////////////////////////
+        console.log('명령형 프로그래밍은 서술한다는 뜻이다.')
+        
+        const string = 'Restaurants in Hanalei';
+        var urlFriendly = '';
+        for(var i = 0; i < string.length; i++){
+            if (string[i] === ' '){
+                urlFriendly += '-';
+            } else {
+                urlFriendly += string[i];
+            }
+        }
+        console.log(urlFriendly)
+
+        
+        /////////////////////////////////////////////////
+        console.log(`선언형 프로그래밍 정규식, 즉 공식을 사용한다는 뜻이다. 
+        따라서 주석을 달필요가없고 어떤결과가 나올지에대해서 추론하기가 쉽다`)
+        const string_2 = 'Restaurant in Seoul';
+        const urlFriendly_2 = string_2.replace(/ /g, '-')
+        console.log(urlFriendly_2)
+
+        console.log('선언형 프로그래밍의 다른예- API에서 멤버를 가져온다음 어떤일을 할지에대한 기술')
+        console.log(`const loadAndMapMembers = compose(
+                conbineWith(sessionStorage, 'members'),
+                save(sessionStorage, 'members'),
+                scopeMembers(window),
+                logMemberInfoToConsole, logFieldsToConsole('name.first'),
+                countMembersBy('location.state'),
+                prepStatesForMapping,
+                save(sessionStorage, 'map'),
+                renderUSMap
+            );
+            getFakePerson(100), then(loadAndMapMembers)`
+        )
+
+    </script>
+</body>
+</html>

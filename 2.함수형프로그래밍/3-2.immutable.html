@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        console.log('원본을 바꾸는 push 메소드')
+
+        var list = ['빨', '주', '노']
+
+        const addColor = function(title, colors){
+        colors.push({title: title});
+        return colors;
+       }
+
+       console.log(addColor('화려한 녹색', list).length)
+       console.log(list)
+       console.log(list.length)
+
+       //////////////////////////////////////////////////
+       console.log('원본을 보존하는 concat 메소드')
+       
+       var list_2 = ['빨', '주', '노']
+       const addColor_2 = (title, colors) => colors.concat({title})
+       
+       console.log(addColor_2('화려한적색', list_2))
+       console.log(list_2)
+       console.log(list_2.length)
+
+       //////////////////////////////////////////////////
+       console.log('원본을 보존하는 최신버전 js')
+       const addColor_3 = (title, colors) => [...colors, {title}]
+
+       var list_3 = ['빨', '주', '노']
+
+       console.log(addColor_3('화려한 푸름', list_3))
+       console.log(list_3)
+       console.log(list_3.length)
+
+    </script>
+</body>
+</html>

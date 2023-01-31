@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div id="target">asd</div>
+</body>
+    <script>
+        //imperative 명령형 프로그래밍
+       var target = document.getElementById('target')
+       var wrapper = document.createElement('div')
+       var headline = document.createElement('h1')
+
+       wrapper.id = 'welcome';
+       headline.innerHTML = 'hello World';
+
+       wrapper.appendChild(headline);
+       target.appendChild(wrapper);
+
+       //declarative 선언형 프로그래밍
+       const {render} = ReactDOM;
+
+       const Welcome = () => (
+        <div id = 'welcome'>
+            <h1>Hello World</h1>
+        </div>
+       )
+
+       render(<Welcome />, document.getElementById('target'))
+    </script>
+</html>

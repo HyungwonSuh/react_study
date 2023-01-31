@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        console.log('//////////////////////////////////////////////////')
+        console.log('예제1')
+        console.log('순수하지 않은 함수 - parameter를 받지않고 return도 없으며, 원본을 바꿔버리기까지한다.')
+        const frederick = {
+            name: 'Frederick Douglass',
+            canRead: false,
+            canWrite: false
+        }
+
+        function selfEducate(){
+            frederick.canRead = true;
+            frederick.canWrite = true;
+            return frederick
+        }
+
+        selfEducate()
+        console.log(frederick)
+
+        ////////////////////////////////////////////////
+        console.log('parameter를 받는 함수이기는 하나 아직 순수하지 않다.')
+        
+        const Jack = {
+            name: 'Jack Mack',
+            canRead: false,
+            canWrite: false
+        }
+
+        const selfEducate_2 = (person) => {
+            person.canRead = true;
+            person.canWrite = true;
+            return person
+        }
+
+        console.log(selfEducate_2(Jack))
+        console.log(Jack)
+
+        ////////////////////////////////////////////////
+        console.log('원본을 바꾸지않도록 함수수정 - 드디어 순수한 함수이다')
+
+        const Duuk = {
+            name: 'Duuk Palisade',
+            canRead: false,
+            canWrite: false
+        }
+
+        const selfEducate_3 = (person) => ({
+            ...person,
+            canRead : true,
+            canWrite : true,
+        });
+
+        console.log(selfEducate_3(Duuk))
+        console.log(Duuk)
+
+        ///////////////////////////////////////////////////////////
+        console.log('//////////////////////////////////////////////////')
+        console.log('예제2')
+        console.log('순수하지 않은 함수')
+
+        function Header(text){
+            let h1 = document.createElement('h1')
+            h1.innerHTML = text;
+            document.body.appendChild(h1)
+        }
+
+        Header('Header() caused side effects')
+
+        ///////////////////////////////////////////////////////////
+        console.log('순수한 함수')
+        
+        const Header_2 = (props) => <h1>{props.title}</h1>
+
+        ReactDOM.render(
+            <Header_2 title = 'asdasdasdasd'/>,
+            document.getElementById('react-container')
+        )
+    </script>
+</body>
+</html>

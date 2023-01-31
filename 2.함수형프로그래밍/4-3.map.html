@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const schools = ['Yorktown', 'Washington&Lee', 'Wakefield']
+
+/////////////////////////////////////////////////////////////
+console.log('-----------Array.map(1)-------------')        
+
+        const highSchools = schools.map(school => `${school} high School`)
+        console.log(highSchools.join('\n'))
+        console.log(schools)
+
+/////////////////////////////////////////////////////////////
+console.log('-----------Array.map(2)--------------')        
+
+        const highSchools_2 = schools.map(school => ({'name' : school}))
+        console.log(highSchools_2)
+
+/////////////////////////////////////////////////////////////
+console.log('--------------Array.map(3)---------------')        
+
+        let schools_2 = [
+            { scname: 'Yorktown'},
+            { scname: 'Stratford'},
+            { scname: 'Washington&Lee'},
+            { scname: 'Wakefield'}
+        ]
+
+        const editName = (oldName, name, arr) => arr.map(item => {
+                if(item.scname === oldName){
+                    return {
+                        ...item, name
+                    }
+                }else{
+                    return item
+                }
+            }
+        )
+
+        let updatedSchools = editName('Stratford', 'HB Woodlawn', schools_2)
+
+        console.log(schools_2)
+        console.log(updatedSchools)
+
+/////////////////////////////////////////////////////////////
+console.log('--------------Array.map(4)---------------')                
+
+        const editName_2 = (oldName, name, arr) => arr.map(item => (item.scname === oldName ? {...item, name} : item))
+
+        let updatedSchools_2 = editName_2('Yorktown', 'KoreanTown', schools_2)
+
+        console.log(updatedSchools_2)
+
+/////////////////////////////////////////////////////////////
+console.log('--------------Array.map(5)---------------')                
+        const editNth = (num, scname, arr) => arr.map((item, i) => (i === num ? {...item, scname} : item))
+
+        let updatedSchools_3 = editNth(2, 'KOREAKOREA', schools_2)
+
+        console.log(schools_2)
+        console.log(updatedSchools_3)
+
+/////////////////////////////////////////////////////////////
+console.log('--------------Object.keys()---------------')    
+        const schools_3 = {
+            '배제고' : 10,
+            '보성고' : 2,
+            '한영고' : 5
+        }
+        
+        const schoolArray_1 = Object.keys(schools_3)
+        console.log(schoolArray_1)
+
+        const schoolArray_2 = Object.keys(schools_3).map(item => ({
+                name: item,
+                wins: schools_3[item]
+            })
+        )
+        console.log(schoolArray_2)
+
+    </script>
+</body>
+</html>
