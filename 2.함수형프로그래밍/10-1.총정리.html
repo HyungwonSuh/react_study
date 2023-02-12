@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+       //명령형으로 구현하기
+       console.log('명령형으로 구현하기')
+       var asdasdasd= new Date()
+       console.log(asdasdasd)
+       
+       setInterval(logClockTime, 1000)
+
+       function logClockTime() {
+            //현재 시간을 상용시로표현하는 문자열을 얻는다
+            var time = getClockTime()
+            //콘솔을 지우고 시간을 로그에 남긴다.
+            console.clear()
+            console.log(time)
+        }
+
+        function getClockTime() {
+            //현재 시간을 얻는다
+            var date = new Date();
+            var time = '';
+
+            //시간을 직렬화 한다.
+            var time = {
+                hours: date.getHours(),
+                minutes: date.getMinutes(),
+                seconds: date.getSeconds(),
+                ampm: 'AM'
+            }
+
+            //상용시로 변환한다.
+            if (time.hours == 12){
+                time.ampm = 'PM';
+            } else if (time.hours > 12) {
+                time.ampm = 'PM';
+                time.hours -= 12
+            }
+
+            //시간을 두 글자로 만들기 위해 앞에 0을 붙인다
+            if (time.hours < 10) {
+                time.hours = '0' + time.hours
+            }
+            
+            //분을 두 글자로 만들기 위해 앞에 0을 붙인다
+            if (time.minutes < 10) {
+                time.minutes = '0' + time.minutes
+            }
+            
+            //초를 두 글자로 만들기 위해 앞에 0을 붙인다
+            if (time.seconds < 10) {
+                time.seconds = '0' + time.seconds
+            }
+
+            //hh:mm:ss tt 형식의 문자열을 만든다.
+            return time.hours + ':' + time.minutes + ':' + time.seconds + '' + time.ampm
+
+        }
+
+    </script>
+</body>
+</html>

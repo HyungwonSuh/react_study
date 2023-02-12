@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        ///////////////////////////////////////////////////////////////
+        console.log('중첩함수-1')
+
+        const userLogs = userName => message => 
+            console.log(`${userName} -> ${message}`);
+
+        const log = userLogs('grandpa23');
+        log('attempted to load 20 fake members');
+
+        ///////////////////////////////////////////////////////////////
+        console.log('중첩함수-2')
+        
+        const userLogs_2 = userName => message => 
+            console.log(`${userName} -> ${message}`);
+
+        userLogs_2('grandpa23')('attempted to load 20 fake members');
+    </script>
+</body>
+</html>

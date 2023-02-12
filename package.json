@@ -1,12 +1,23 @@
 {
   "name": "reactstudy",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "@testing-library/react": "^13.4.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HyungwonSuh/react_study.git"
+  },
+  "bugs": {
+    "url": "https://github.com/HyungwonSuh/react_study/issues"
+  },
+  "homepage": "https://github.com/HyungwonSuh/react_study#readme",
+  "description": ""
 }

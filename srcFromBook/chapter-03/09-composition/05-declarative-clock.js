@@ -13,9 +13,7 @@ const abstractClockTime = date =>
 const civilianHours = clockTime =>
     ({
         ...clockTime,
-        hours: (clockTime.hours > 12) ?
-        clockTime.hours - 12 :
-            clockTime.hours
+        hours: (clockTime.hours > 12) ? clockTime.hours - 12 : clockTime.hours
     })
 
 const appendAMPM = clockTime =>
@@ -26,8 +24,7 @@ const appendAMPM = clockTime =>
 
 const display = target => time => target(time)
 
-const formatClock = format =>
-    time =>
+const formatClock = format => time =>
         format.replace("hh", time.hours)
             .replace("mm", time.minutes)
             .replace("ss", time.seconds)

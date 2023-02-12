@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>asdasd</title>
+</head>
+<body>
+
+<!-- Target Container -->
+<div id="root_1"></div>
+<div id="root_2"></div>
+<div id="root_3"></div>
+
+<!-- React Library & React DOM-->
+<script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+<script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+
+<script>
+
+    const dish = React.createElement("h1", null, "구운 연어")
+    const dessert = React.createElement('h2', null, '코코넛 크림 파이')
+
+    ReactDOM.render(
+        [dish, dessert], document.getElementById('root_1')
+    ) 
+
+///////////////////////////////////////////////////////////
+    const list = React.createElement(
+        'ul', null, 
+        React.createElement('li', null, '연어 900 그램'),
+        React.createElement('li', null, '신선한 로즈마리 5가지'),
+        React.createElement('li', null, '올리브 오일 2 테이블스푼'),
+        React.createElement('li', null, '작은 레몬 2 조각'),
+        React.createElement('li', null, '코셔 소금 1 티스푼'),
+        React.createElement('li', null, '다진 마늘 4 쪽')
+    )
+
+    ReactDOM.render(
+        list, document.getElementById('root_2')
+    )
+    console.log(list)
+
+    //////////////////////////////////////////////////////////////
+
+    const reactList = React.createElement(
+        'section', {id: 'baked-salmon'},
+        React.createElement('h1', null, '구운 연어'),
+        React.createElement(
+            'ul', {'className' : 'ingredients'},
+            React.createElement('li', null, '연어 900 그램'),
+            React.createElement('li', null, '신선한 로즈마리 5가지'),
+            React.createElement('li', null, '올리브 오일 2 테이블스푼'),
+            React.createElement('li', null, '작은 레몬 2 조각'),
+            React.createElement('li', null, '코셔 소금 1 티스푼'),
+            React.createElement('li', null, '다진 마늘 4 쪽')
+        ),
+        React.createElement(
+            'section', {'className': 'instructions'},
+            React.createElement('h2', null, '조리절차'),
+            React.createElement('p', null, '오븐을 190도로 예열한다.'),
+            React.createElement('p', null, '알루미늄 포일에 올리브 오일을 가볍게 두른다.'),
+            React.createElement('p', null, '로즈마리, 슬라이스한 레몬, 다진 마늘을 연어위에 얹는다.'),
+            React.createElement('p', null, '완전히 익을 때까지 15-20분간 굽는다.'),
+            React.createElement('p', null, '오븐에서 그릇을 꺼낸다.')
+        ),
+
+
+    )
+
+    ReactDOM.render(
+        reactList, document.getElementById('root_3')
+    )
+</script>
+</body>
+</html>

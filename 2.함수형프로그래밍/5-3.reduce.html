@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        ///////////////////////////////////////////////
+        console.log('map 과 reduce의 차이점은 map은 오로지 배열을 반환하고, reduce는 반환하는 형태에 제한이없다, 또한 reduce만 초기값을 대입해줘야한다.')
+        console.log('---------------reduce(초기값(0), 배열객체)--------------------')
+        
+        const ages = [21,18,42,40,64,63,34]
+        const maxAge = ages.reduce((max, age) =>{
+            console.log(`${age} > ${max} = ${age > max}`);
+            if(age > max) {
+                return age
+            } else{
+                return max
+            }
+        }, 0)
+        console.log('maxAge', maxAge)
+        console.log('ages', ages)
+
+        ///////////////////////////////////////////////
+        console.log('---------------reduce한줄코딩--------------------')
+
+        const maxNum = ages.reduce((max, value) => (value < max ? max : value), 0)
+        console.log(maxNum)
+        console.log('ages', ages)
+
+        /////////////////////////////////////////////////////////////
+        console.log('---------------예제2--------------------')
+        const colors = [
+            {
+                id: 'xekare',
+                title: '과격한 빨강',
+                rating: 3
+            },
+            {
+                id: 'jbwsof',
+                title: '큰 파랑',
+                rating: 2
+            },
+            {
+                id: 'prigbj',
+                title: '회색곰 회색',
+                rating: 5
+            },
+            {
+                id: 'ryhbhsl',
+                title: '바나나',
+                rating: 1
+            }
+        ]
+
+        var asdasd = {qwe : {zxc:'asd', fvb:'zcv'}, fgdf : {xcvwr: 'zxc', intre3:'zxbnt'}, zxcvxcv : {hrtyu: 'zxcv', sdfgmnyt:'reyy5445'}}
+        const hashColors = colors.reduce(
+            (hash, {id, title, rating}) => {
+                hash[id] = {title, rating}
+                console.log('hash[id]',hash[id])
+                console.log('hash',hash)
+                return hash
+            },
+            {}
+        )
+        console.log(hashColors)
+
+        /////////////////////////////////////////////////////////////
+        console.log('---------------예제3--------------------')
+
+        const colors_2 = ['red', 'red', 'green', 'blue', 'green']
+
+        const colors_3 = []
+        console.log(colors_3.indexOf('red'))
+
+        const uniqueColors = colors_2.reduce(
+            (unique, color) => unique.indexOf(color) !== -1 ? unique : [...unique, color] , []
+        );
+
+        console.log(uniqueColors)
+    </script>
+</body>
+</html>

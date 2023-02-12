@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>asdasd</title>
+</head>
+<body>
+
+<!-- Target Container -->
+<div id="root_1"></div>
+<div id="root_2"></div>
+<div id="root_3"></div>
+<div id="root_4"></div>
+
+<!-- React Library & React DOM-->
+<script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+<script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+
+<script>
+    const items = [
+        '연어 900그램',
+        '신선한 로즈마리 5가지',
+        '올리브 오일 2 테이블스푼',
+        '작은 레몬 2조각',
+        '코셔 소금 1 티스푼',
+        '다진 마늘 4쪽'
+    ]
+
+    const list = React.createElement(
+        'ul', {className: 'ingredients'},
+        items.map(ingredient => React.createElement('li', null, ingredient))
+    )
+    ReactDOM.render(
+        list, document.getElementById('root_1')
+    )
+///////////////////////////////////////////////////////////////////////////
+console.log('----------------key 값을 줘야 경고문을 없앨수있다.----------------')
+
+    const items_2 = [
+        '연어 900그램',
+        '신선한 로즈마리 5가지',
+        '올리브 오일 2 테이블스푼',
+        '작은 레몬 2조각',
+        '코셔 소금 1 티스푼',
+        '다진 마늘 4쪽'
+    ]
+    const list_2 = React.createElement(
+        'ul', {className: 'ingredients'},
+        items_2.map((ingredient, i) => 
+            React.createElement('li', {key : i}, ingredient))
+    )
+    ReactDOM.render(
+        list_2, document.getElementById('root_2')
+    )
+//////////////////////////////////////////////////////////////////
+
+function IngredientsList(){
+    return React.createElement(
+        'ul',{className: 'ingredients'},
+        React.createElement('li', null, '무염 버터 1 컵'),
+        React.createElement('li', null, '크런치 땅콩 버터 1컵'),
+        React.createElement('li', null, '흑설탕 1 컵'),
+        React.createElement('li', null, '백설탕 1 컵'),
+        React.createElement('li', null, '달걀 2 개'),
+        React.createElement('li', null, '일반 밀가루 2.5컵'),
+        React.createElement('li', null, '베이킹 소다 1 티스푼'),
+        React.createElement('li', null, '소금 0.5 티스푼')
+    )
+}
+ReactDOM.render(
+    React.createElement(IngredientsList, null, null),
+    document.getElementById('root_3')
+)
+
+///////////////////////////////////////////////////////////
+const items_3 = [
+        '연어 900그램',
+        '신선한 로즈마리 5가지',
+        '올리브 오일 2 테이블스푼',
+        '작은 레몬 2조각',
+        '코셔 소금 1 티스푼',
+        '다진 마늘 4쪽'
+    ]
+
+const secretIngredients = [
+    '무염 버터 1 컵',
+    '크런치 땅콩 버터 1컵',
+    '흑설탕 1 컵',
+    '백설탕 1 컵',
+    '달걀 2 개',
+    '일반 밀가루 2.5컵',
+    '베이킹 소다 1 티스푼',
+    '소금 0.5 티스푼'
+]
+
+function IngredientsList_2(){
+    return React.createElement(
+        'ul', {className: 'ingredients'},
+        items_3.map((ingredient, i) => 
+            React.createElement('li', {key : i}, ingredient))
+    )
+}
+
+ReactDOM.render(
+    React.createElement(IngredientsList_2, {items : secretIngredients}, null),
+    document.getElementById('root_4')
+)
+
+///////////////////////////////////////////////
+/*<IngredientList items ='[...]'>
+    <ul className = 'ingredients'>
+        <li key = '0'>무염 버터 1 컵</li>
+        <li key = '1'>크런치 땅콩 버터 1컵</li>
+        <li key = '2'>흑설탕 1 컵</li>
+        <li key = '3'>백설탕 1 컵</li>
+        <li key = '4'>계란 2 개</li>
+        <li key = '5'>일반 밀가루 2.5 컵</li>
+        <li key = '6'>베이킹 소다 1 티스푼</li>
+        <li key = '7'>소금 0.5 티스푼</li>
+    </ul>    
+</IngredientList>
+
+function IngredientList({items}){
+    return React.createElement(
+        'ul', { className : 'ingredients'},
+        items.map((Ingredient, i) => React.createElement( 'li' , { key : i}, Ingredient))
+    )
+}
+*/
+
+</script>
+</body>
+</html>
